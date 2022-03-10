@@ -6,9 +6,6 @@ from pytorch_widedeep.models import TabTransformer, WideDeep
 from pytorch_widedeep.preprocessing import TabPreprocessor
 from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, roc_auc_score
 
-# ML model path
-# model_path = "app/model.pkl"
-
 # Load dataframes from P files created in DataCleaning&FeatureEngineering.py
 def load_dataset():
 
@@ -56,7 +53,6 @@ def set_model(prepare_tab, depth):
 
     return model
     
-# TODO: edit to return through API call
 # Runs and returns results of predictive model
 def run_experiment_and_save(
     model,
@@ -93,19 +89,3 @@ def run_experiment_and_save(
     }
     results = json.dumps(results_dict)
     return results
-
-    # print(json.loads(results))
-    # print(f"Accuracy: {acc}. F1: {f1}. ROC_AUC: {auc}")
-    # print(confusion_matrix(y_test, y_pred))
-
-# if __name__ == '__main__':
-#     prepare_tab, X_train, X_test, y_train, y_test = prepare_data()
-#     model = set_model(prepare_tab)
-#     result = run_experiment_and_save(
-#         model,
-#         X_train,
-#         X_test,
-#         y_train,
-#         y_test
-#     )
-
